@@ -3,4 +3,4 @@
 . ./env.sh
 
 cd $BASE || exit 1
-./waf configure --noconfirm "$@"
+./waf configure --use-external-libs --noconfirm "$@"
