@@ -29,7 +29,7 @@ except ImportError:
 
 buildmaster_host = 'localhost'
 port = 9989
-slavename = 'local-slave'
+slavename = 'bot-F19x86-native'
 passwd = 'pass'
 keepalive = 600
 usepty = 0
