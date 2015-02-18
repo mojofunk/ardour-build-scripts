@@ -6,3 +6,6 @@ BASE=$(dirname $BASE) # up one more
 BASE=$BASE/ardour
 
 BUILD_DIR=$BASE/build
+
+COMMON_OPTS="--noconfirm --use-external-libs"
+TEST_OPTS="--test --single-tests"
