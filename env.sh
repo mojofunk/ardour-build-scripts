@@ -7,5 +7,5 @@ BASE=$BASE/ardour
 
 BUILD_DIR=$BASE/build
 
-COMMON_OPTS="--no-jack-metadata --noconfirm --use-external-libs"
+COMMON_OPTS="--noconfirm --use-external-libs"
 TEST_OPTS="--test --single-tests"
