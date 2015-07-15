@@ -9,3 +9,4 @@ BUILD_DIR=$BASE/build
 
 COMMON_OPTS="--noconfirm --use-external-libs"
 TEST_OPTS="--test --single-tests"
+TEST_BACKENDS="--with-backends=jack,dummy,alsa"
