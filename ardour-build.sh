@@ -64,9 +64,9 @@ done
 shift "$((OPTIND-1))"
 
 if [ -z "$1" ] || [ -z "$2" ]; then
-		print_usage
-		echo "You must specify command and build config"
-		exit 1
+	print_usage
+	echo "You must specify command and build config"
+	exit 1
 fi
 
 ARDOUR_BUILD_COMMAND="$1"
