@@ -95,14 +95,14 @@ function build ()
 {
 	sync
 	cd $CONFIG_BUILD_DIR || exit 1
-	./waf ${config["$ARDOUR_BUILD_CONFIG"]} "$@"
+	./waf "$@"
 }
 
 function install ()
 {
 	sync
 	cd $CONFIG_BUILD_DIR || exit 1
-	./waf install ${config["$ARDOUR_BUILD_CONFIG"]} "$@"
+	./waf install "$@"
 }
 
 function clean ()
