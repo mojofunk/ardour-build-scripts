@@ -1,1 +1,2 @@
-These are a collection of a few very basic scripts I use to build Ardour.
+ardour-build.sh is a script used to build Ardour in various configurations
+where each configuration is contained in a separate build directory.
