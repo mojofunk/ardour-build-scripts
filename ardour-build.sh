@@ -74,6 +74,15 @@ ARDOUR_BUILD_CONFIG="$2"
 ARDOUR_BUILD_SCRIPT_PATH=$( cd $(dirname $0) ; pwd -P )
 ARDOUR_BUILD_ROOT="$ARDOUR_BUILD_SCRIPT_PATH/BUILD"
 
+ARDOUR_SRC_PATH=$( cd $ARDOUR_SRC_DIR ; pwd -P )
+
+if [ "$ARDOUR_SRC_PATH" = "$ARDOUR_BUILD_SCRIPT_PATH" ]; then
+	echo "You can not use this script from within the Ardour source directory"
+	echo "as you want the BUILD output directory be in another location so"
+	echo "rsync will not go into an indefinite loop!"
+	exit 1
+fi
+
 CONFIG_BUILD_DIR="$ARDOUR_BUILD_ROOT/$ARDOUR_BRANCH-$ARDOUR_BUILD_CONFIG"
 CONFIG_WAF_BUILD_DIR="$CONFIG_BUILD_DIR/build"
 
