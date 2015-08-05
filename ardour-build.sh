@@ -128,15 +128,18 @@ else
 	exit 1
 fi;
 
+# remove the command and config parameters
+shift 2
+
 case $ARDOUR_BUILD_COMMAND in
 	configure)
-		configure || exit 1
+		configure $@ || exit 1
 		;;
 	build)
-		build || exit 1
+		build $@ || exit 1
 		;;
 	install)
-		install || exit 1
+		install $@ || exit 1
 		;;
 	clean)
 		clean || exit 1
