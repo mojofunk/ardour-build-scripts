@@ -18,7 +18,7 @@ TEST_OPTS="--test --single-tests"
 TEST_BACKENDS="--with-backends=jack,dummy,alsa"
 
 declare -A config
-config["debug"]="$COMMON_OPTS"
+config["debug"]="$COMMON_OPTS $TEST_BACKENDS"
 config["debug-internal-libs"]="--noconfirm"
 config["debug-nojack"]="$COMMON_OPTS --with-backend=dummy,alsa"
 config["debug-gtk-deprecated"]="$COMMON_OPTS --gtk-disable-deprecated"
