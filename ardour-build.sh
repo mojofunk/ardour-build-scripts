@@ -16,9 +16,11 @@ cd - || exit 1
 COMMON_OPTS="--noconfirm --use-external-libs"
 TEST_OPTS="--test --single-tests"
 TEST_BACKENDS="--with-backends=jack,dummy,alsa"
+GTK3="--use-gtk3"
 
 declare -A config
 config["debug"]="$COMMON_OPTS $TEST_BACKENDS"
+config["debug-gtk3"]="$COMMON_OPTS $TEST_BACKENDS $GTK3"
 config["debug-internal-libs"]="--noconfirm"
 config["debug-nojack"]="$COMMON_OPTS --with-backend=dummy,alsa"
 config["debug-gtk-deprecated"]="$COMMON_OPTS --gtk-disable-deprecated"
