@@ -92,7 +92,7 @@ mkdir -p $ARDOUR_BUILD_ROOT || exit 1
 
 function sync ()
 {
-	rsync -av $ARDOUR_SRC_DIR/ $CONFIG_BUILD_DIR || exit 1
+	rsync -av --delete --exclude /build $ARDOUR_SRC_DIR/ $CONFIG_BUILD_DIR || exit 1
 }
 
 function configure ()
