@@ -16,18 +16,20 @@ cd - || exit 1
 COMMON_OPTS="--noconfirm --use-external-libs"
 TEST_OPTS="--test --single-tests"
 TEST_BACKENDS="--with-backends=jack,dummy,alsa"
+GTK_DISABLE_DEPRECATED="--gtk-disable-deprecated"
+RELEASE_BACKENDS="--with-backends=jack,dummy,alsa"
 GTK3="--use-gtk3"
 
 declare -A config
 config["debug"]="$COMMON_OPTS $TEST_BACKENDS"
-config["debug-gtk3"]="$COMMON_OPTS $TEST_BACKENDS $GTK3"
+config["debug-gtk3"]="$COMMON_OPTS $TEST_BACKENDS $GTK_DISABLE_DEPRECATED $GTK3"
 config["debug-internal-libs"]="--noconfirm"
 config["debug-nojack"]="$COMMON_OPTS --with-backend=dummy,alsa"
-config["debug-gtk-deprecated"]="$COMMON_OPTS --gtk-disable-deprecated"
+config["debug-gtk-deprecated"]="$COMMON_OPTS $TEST_BACKENDS $GTK_DISABLE_DEPRECATED"
 config["debug-tests"]="$COMMON_OPTS $TEST_OPTS $TEST_BACKENDS"
 config["debug-tests-cxx11"]="$COMMON_OPTS $TEST_OPTS $TEST_BACKENDS --cxx11"
 config["debug-tests-amalgamated"]="$COMMON_OPTS $TEST_OPTS $TEST_BACKENDS --enable-amalgamation"
-config["release"]="$COMMON_OPTS --optimize"
+config["release"]="$COMMON_OPTS $RELEASE_BACKENDS --optimize"
 
 function print_usage ()
 {
