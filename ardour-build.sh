@@ -24,7 +24,7 @@ CLASS_TRACKING="--class-tracking"
 # debug-symols and profile are only relevent for optimized builds as default
 # builds include debug symbols and the default optimization flag(at least for
 # gcc is -O0 that doesn't omit the frame pointer
-DEBUG="--debug-symbols"
+DEBUG="--debug-symbols --backtrace"
 PROFILE="--profile"
 # Puts all symbols(including static) in the dynamic symbol table so generating
 # stack traces at run-time will give a symbol name for static application/GUI
@@ -40,7 +40,7 @@ config["debug-gtk-deprecated"]="$COMMON_OPTS $TEST_BACKENDS $GTK_DISABLE_DEPRECA
 config["debug-tests"]="$COMMON_OPTS $TESTS $TEST_BACKENDS"
 config["debug-tests-single"]="$COMMON_OPTS $TESTS $TEST_BACKENDS"
 config["debug-tests-class-tracking"]="$COMMON_OPTS $TESTS $TEST_BACKENDS $BACKTRACE $CLASS_TRACKING"
-config["debug-tests-cxx11"]="$COMMON_OPTS $TESTS $TEST_BACKENDS --cxx11"
+config["debug-tests-cxx11"]="$DEBUG $COMMON_OPTS $TESTS $TEST_BACKENDS --cxx11"
 config["debug-tests-amalgamated"]="$COMMON_OPTS $TESTS $TEST_BACKENDS --enable-amalgamation"
 config["release"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE"
 config["optimize-debug"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
