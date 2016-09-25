@@ -44,6 +44,7 @@ config["debug-tests-cxx11"]="$DEBUG $COMMON_OPTS $TESTS $TEST_BACKENDS --cxx11"
 config["debug-tests-amalgamated"]="$COMMON_OPTS $TESTS $TEST_BACKENDS --enable-amalgamation"
 config["release"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE"
 config["optimize-debug"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
+config["optimize-debug-tests"]="$COMMON_OPTS $TESTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
 config["optimize-debug-profile"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG $PROFILE"
 
 function print_usage ()
