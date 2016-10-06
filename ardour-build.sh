@@ -113,7 +113,7 @@ mkdir -p $ARDOUR_INSTALL_ROOT || exit 1
 
 function sync ()
 {
-	rsync -av --delete --exclude /build --exclude /.lock* $ARDOUR_SRC_DIR/ $CONFIG_BUILD_DIR || exit 1
+	rsync -av --delete --exclude /build --exclude /.lock* --exclude /.waf* $ARDOUR_SRC_DIR/ $CONFIG_BUILD_DIR || exit 1
 }
 
 function configure ()
