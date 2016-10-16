@@ -26,6 +26,7 @@ CLASS_TRACKING="--class-tracking"
 # gcc is -O0 that doesn't omit the frame pointer
 DEBUG="--debug-symbols --backtrace"
 PROFILE="--profile"
+GPROFILE="--gprofile"
 # Puts all symbols(including static) in the dynamic symbol table so generating
 # stack traces at run-time will give a symbol name for static application/GUI
 # symbols rather than an address/offset
@@ -34,18 +35,20 @@ BACKTRACE="--backtrace"
 declare -A config
 config["debug"]="$COMMON_OPTS $TEST_BACKENDS"
 config["debug-gtk3"]="$COMMON_OPTS $TEST_BACKENDS $GTK_DISABLE_DEPRECATED $GTK3"
-config["debug-internal-libs"]="--noconfirm"
 config["debug-nojack"]="$COMMON_OPTS --with-backend=dummy,alsa"
 config["debug-gtk-deprecated"]="$COMMON_OPTS $TEST_BACKENDS $GTK_DISABLE_DEPRECATED"
 config["debug-tests"]="$COMMON_OPTS $TESTS $TEST_BACKENDS"
+config["debug-tests-internal-libs"]="$TESTS $TEST_BACKENDS --noconfirm"
+config["debug-tests-internal-libs-gprofile"]="$TESTS $TEST_BACKENDS $GPROFILE --noconfirm"
 config["debug-tests-single"]="$COMMON_OPTS $TESTS $TEST_BACKENDS"
 config["debug-tests-class-tracking"]="$COMMON_OPTS $TESTS $TEST_BACKENDS $BACKTRACE $CLASS_TRACKING"
 config["debug-tests-cxx11"]="$DEBUG $COMMON_OPTS $TESTS $TEST_BACKENDS --cxx11"
 config["debug-tests-amalgamated"]="$COMMON_OPTS $TESTS $TEST_BACKENDS --enable-amalgamation"
-config["release"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE"
+config["release"]="$RELEASE_BACKENDS $OPTIMIZE"
 config["optimize-debug"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
 config["optimize-debug-tests"]="$COMMON_OPTS $TESTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
 config["optimize-debug-profile"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG $PROFILE"
+config["optimize-debug-gprofile"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG $GPROFILE"
 
 function print_usage ()
 {
