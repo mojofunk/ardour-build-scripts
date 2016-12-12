@@ -13,7 +13,7 @@ ARDOUR_BRANCH=`git rev-parse --abbrev-ref HEAD`
 
 cd - || exit 1
 
-COMMON_OPTS="--noconfirm --use-external-libs"
+EXTERNAL_LIBS="--use-external-libs"
 TESTS="--test --single-tests"
 TEST_BACKENDS="--with-backends=jack,dummy,alsa"
 GTK_DISABLE_DEPRECATED="--gtk-disable-deprecated"
@@ -33,22 +33,22 @@ GPROFILE="--gprofile"
 BACKTRACE="--backtrace"
 
 declare -A config
-config["debug"]="$DEBUG $COMMON_OPTS $TEST_BACKENDS"
-config["debug-gtk3"]="$DEBUG $COMMON_OPTS $TEST_BACKENDS $GTK_DISABLE_DEPRECATED $GTK3"
-config["debug-nojack"]="$DEBUG $COMMON_OPTS --with-backend=dummy,alsa"
-config["debug-gtk-deprecated"]="$DEBUG $COMMON_OPTS $TEST_BACKENDS $GTK_DISABLE_DEPRECATED"
-config["debug-tests"]="$DEBUG $COMMON_OPTS $TESTS $TEST_BACKENDS"
+config["debug"]="$DEBUG $EXTERNAL_LIBS $TEST_BACKENDS"
+config["debug-gtk3"]="$DEBUG $EXTERNAL_LIBS $TEST_BACKENDS $GTK_DISABLE_DEPRECATED $GTK3"
+config["debug-nojack"]="$DEBUG $EXTERNAL_LIBS --with-backend=dummy,alsa"
+config["debug-gtk-deprecated"]="$DEBUG $TEST_BACKENDS $GTK_DISABLE_DEPRECATED"
+config["debug-tests"]="$DEBUG $EXTERNAL_LIBS $TESTS $TEST_BACKENDS"
 config["debug-tests-internal-libs"]="$DEBUG $TESTS $TEST_BACKENDS --noconfirm"
 config["debug-tests-internal-libs-gprofile"]="$DEBUG $TESTS $TEST_BACKENDS $GPROFILE --noconfirm"
-config["debug-tests-single"]="$DEBUG $COMMON_OPTS $TESTS $TEST_BACKENDS"
-config["debug-tests-class-tracking"]="$DEBUG $COMMON_OPTS $TESTS $TEST_BACKENDS $BACKTRACE $CLASS_TRACKING"
-config["debug-tests-cxx11"]="$DEBUG $COMMON_OPTS $TESTS $TEST_BACKENDS --cxx11"
-config["debug-tests-amalgamated"]="$DEBUG $COMMON_OPTS $TESTS $TEST_BACKENDS --enable-amalgamation"
+config["debug-tests-single"]="$DEBUG $EXTERNAL_LIBS $TESTS $TEST_BACKENDS"
+config["debug-tests-class-tracking"]="$DEBUG $EXTERNAL_LIBS $TESTS $TEST_BACKENDS $BACKTRACE $CLASS_TRACKING"
+config["debug-tests-cxx11"]="$DEBUG $EXTERNAL_LIBS $TESTS $TEST_BACKENDS --cxx11"
+config["debug-tests-amalgamated"]="$DEBUG $EXTERNAL_LIBS $TESTS $TEST_BACKENDS --enable-amalgamation"
 config["release"]="$RELEASE_BACKENDS $OPTIMIZE"
-config["optimize-debug"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
-config["optimize-debug-tests"]="$COMMON_OPTS $TESTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
-config["optimize-debug-profile"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG $PROFILE"
-config["optimize-debug-gprofile"]="$COMMON_OPTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG $GPROFILE"
+config["optimize-debug"]="$EXTERNAL_LIBS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
+config["optimize-debug-tests"]="$EXTERNAL_LIBS $TESTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
+config["optimize-debug-profile"]="$EXTERNAL_LIBS $RELEASE_BACKENDS $OPTIMIZE $DEBUG $PROFILE"
+config["optimize-debug-gprofile"]="$EXTERNAL_LIBS $RELEASE_BACKENDS $OPTIMIZE $DEBUG $GPROFILE"
 
 function print_usage ()
 {
