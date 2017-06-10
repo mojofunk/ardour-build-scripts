@@ -1,2 +1,24 @@
 ardour-build.sh is a script used to build Ardour in various configurations
 where each configuration is contained in a separate build directory.
+
+To use these scripts, place this repository adjacent to your Ardour
+repository/ies and configure and build using pre-defined configs
+
+For instance:
+
+$ ./ardour-build.sh configure debug
+
+$ ./ardour-build.sh build debug
+
+The result of the build with be located in the BUILD directory in the
+form:
+
+$ARDOUR_SRC_DIR_NAME-$ARDOUR_BRANCH-$ARDOUR_BUILD_CONFIG
+
+This may be something like:
+
+BUILD/ardour-master-debug
+
+BUILD/ardour-cool-branch-optimize-debug
+
+BUILD/altardour-world-peace-debug-tests
