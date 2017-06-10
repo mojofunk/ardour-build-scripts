@@ -110,16 +110,23 @@ if [ "$ARDOUR_SRC_PATH" = "$ARDOUR_BUILD_SCRIPT_PATH" ]; then
 	exit 1
 fi
 
-CONFIG_BUILD_DIR="$ARDOUR_BUILD_ROOT/$ARDOUR_BRANCH-$ARDOUR_BUILD_CONFIG"
+CONFIG_BUILD_DIR="$ARDOUR_BUILD_ROOT/$ARDOUR_SRC_DIR_NAME-$ARDOUR_BRANCH-$ARDOUR_BUILD_CONFIG"
 CONFIG_WAF_BUILD_DIR="$CONFIG_BUILD_DIR/build"
-CONFIG_INSTALL_DIR="$ARDOUR_INSTALL_ROOT/$ARDOUR_BRANCH-$ARDOUR_BUILD_CONFIG"
+CONFIG_INSTALL_DIR="$ARDOUR_INSTALL_ROOT/$ARDOUR_SRC_DIR_NAME-$ARDOUR_BRANCH-$ARDOUR_BUILD_CONFIG"
 
 mkdir -p $ARDOUR_BUILD_ROOT || exit 1
 mkdir -p $ARDOUR_INSTALL_ROOT || exit 1
 
+function print_env ()
+{
+	echo "ARDOUR_SRC_DIR : $ARDOUR_SRC_DIR"
+	echo "ARDOUR_SRC_DIR_NAME : $ARDOUR_SRC_DIR_NAME"
+	echo "ARDOUR_BRANCH : $ARDOUR_BRANCH"
+}
+
 function sync ()
 {
-	rsync -av --delete --exclude /build --exclude /.lock* --exclude /.waf* $ARDOUR_SRC_DIR/ $CONFIG_BUILD_DIR || exit 1
+	rsync -av --delete --exclude /build --exclude /.lock* --exclude /.waf* --exclude libs/ardour/config_text.cc $ARDOUR_SRC_DIR/ $CONFIG_BUILD_DIR || exit 1
 }
 
 function configure ()
@@ -148,6 +155,8 @@ function clean ()
 	cd $CONFIG_BUILD_DIR || exit 1
 	rm -rf $CONFIG_WAF_BUILD_DIR
 }
+
+print_env
 
 if [ "${config["$ARDOUR_BUILD_CONFIG"]+isset}" ]; then
 	echo "Using configuration: $ARDOUR_BUILD_CONFIG"
