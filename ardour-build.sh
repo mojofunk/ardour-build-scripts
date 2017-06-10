@@ -1,11 +1,14 @@
 #!/bin/bash
 
-BASE=$(readlink -f $0)
-BASE=$(dirname $BASE) # up one
-BASE=$(dirname $BASE) # up one more
-BASE=$BASE/ardour
+ARDOUR_SRC_DIR_NAME=${ARDOUR_SRC_DIR_NAME:="ardour"}
+SCRIPT_NAME=`basename $0`
 
-ARDOUR_SRC_DIR=${ARDOUR_SRC_DIR:=$BASE}
+BASE=$(readlink -f $0)
+BASE=$(dirname $BASE) # script directory
+BASE=$(dirname $BASE) # one above
+SRC_DIR=$BASE/$ARDOUR_SRC_DIR_NAME
+
+ARDOUR_SRC_DIR=${ARDOUR_SRC_DIR:=$SRC_DIR}
 
 cd $ARDOUR_SRC_DIR || exit 1
 
@@ -52,7 +55,7 @@ config["optimize-debug-gprofile"]="$RELEASE_BACKENDS $OPTIMIZE $DEBUG $GPROFILE"
 
 function print_usage ()
 {
-	echo "usage: ardour-build [-l] [-h] <command> <config>"
+	echo "usage: $SCRIPT_NAME [-l] [-h] <command> <config>"
 	echo " "
 	echo "The commands are:"
 	echo "    configure"
