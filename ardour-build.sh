@@ -67,7 +67,12 @@ function print_usage ()
 function print_configs ()
 {
 	echo "Possible build configurations: "
-	echo "${!config[@]}"
+	for config_name in "${!config[@]}"
+	do
+		:
+		echo "$config_name"
+	done |
+	sort
 }
 
 OPTIND=1
