@@ -10,7 +10,7 @@ $ ./ardour-build.sh configure debug
 
 $ ./ardour-build.sh build debug
 
-A list of configurations can be listed with:
+Configuration names can be listed with:
 
 $ ./ardour-build.sh -l
 
