@@ -2,7 +2,7 @@ ardour-build.sh is a script used to build Ardour in various configurations
 where each configuration is contained in a separate build directory.
 
 To use these scripts, place this repository adjacent to your Ardour
-repository/ies and configure and build using pre-defined configs
+repository/ies and configure and build using pre-defined configurations.
 
 For instance:
 
@@ -10,7 +10,11 @@ $ ./ardour-build.sh configure debug
 
 $ ./ardour-build.sh build debug
 
-The result of the build with be located in the BUILD directory in the
+A list of configurations can be listed with:
+
+$ ./ardour-build.sh -l
+
+The result of the build will be located in the BUILD directory in the
 form:
 
 $ARDOUR_SRC_DIR_NAME-$ARDOUR_BRANCH-$ARDOUR_BUILD_CONFIG
