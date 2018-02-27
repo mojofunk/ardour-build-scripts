@@ -55,11 +55,13 @@ config["debug-tests-class-tracking"]="$DEBUG $TESTS $TEST_BACKENDS $BACKTRACE $C
 config["debug-tests-cxx11"]="$DEBUG $TESTS $TEST_BACKENDS --cxx11"
 config["release"]="$RELEASE_BACKENDS $OPTIMIZE"
 config["optimize-debug"]="$RELEASE_BACKENDS $OPTIMIZE $DEBUG"
+config["optimize-debug-dev-tools"]="$RELEASE_BACKENDS $OPTIMIZE $DEBUG --dev-tools"
 config["optimize-debug-no-threaded-waveviews"]="$RELEASE_BACKENDS $OPTIMIZE $DEBUG --no-threaded-waveviews"
 config["optimize-debug-tests"]="$TESTS $RELEASE_BACKENDS $OPTIMIZE $DEBUG"
 config["optimize-debug-profile"]="$RELEASE_BACKENDS $OPTIMIZE $DEBUG $PROFILE"
 config["optimize-debug-gprofile"]="$RELEASE_BACKENDS $OPTIMIZE $DEBUG $GPROFILE"
 config["optimize-amalgamate"]="$RELEASE_BACKENDS $OPTIMIZE --amalgamate"
+config["optimize-amalgamate-dev-tools"]="$RELEASE_BACKENDS $OPTIMIZE --amalgamate --dev-tools"
 config["optimize-tests-amalgamate"]="$RELEASE_BACKENDS $OPTIMIZE $TESTS --amalgamate"
 
 function print_usage ()
