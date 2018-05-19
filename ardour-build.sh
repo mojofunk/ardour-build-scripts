@@ -43,6 +43,7 @@ config["debug-amalgamate-dev-tools"]="$DEBUG $TEST_BACKENDS --dev-tools --amalga
 config["debug-amalgamate-no-surfaces"]="$DEBUG $TEST_BACKENDS $DISABLE_SURFACES --amalgamate"
 config["debug-amalgamate-dev-tools-no-surfaces"]="$DEBUG $TEST_BACKENDS $DISABLE_SURFACES --dev-tools --amalgamate"
 config["debug-devel"]="$DEBUG $TEST_BACKENDS $GTK3 $DISABLE_SURFACES --amalgamate"
+config["debug-devel-dev-tools"]="$DEBUG $TEST_BACKENDS $GTK3 $DISABLE_SURFACES --dev-tools --amalgamate"
 config["debug-nojack"]="$DEBUG --with-backend=dummy,alsa"
 config["debug-gtk-deprecated"]="$DEBUG $TEST_BACKENDS $GTK_DISABLE_DEPRECATED"
 config["debug-gtk-deprecated-amalgamate"]="$DEBUG $TEST_BACKENDS $GTK_DISABLE_DEPRECATED --amalgamate"
